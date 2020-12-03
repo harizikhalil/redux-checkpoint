@@ -1,16 +1,35 @@
-
-
-.complete{
+.complete {
   text-decoration: line-through;
+  opacity: 0.5;
 }
-.task-items{
+.task-items {
   display: flex;
- justify-content: center;
- align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-.task-update{
+.task-update form {
   display: flex;
   align-items: center;
   width: 550px;
-  margin:auto;
+  margin: auto;
+}
+.form-container {
+  text-align: center;
+}
+.form-container form {
+  display: flex;
+  width: 700px;
+  margin: 15px auto;
+}
+.search-tasks {
+  margin-right: 70px;
+  display: flex;
+  justify-content: flex-end;
+}
+.search-tasks label {
+  margin-right: 15px;
+  cursor: pointer;
+}
+.search-tasks input {
+  margin-left: 8px;
 }

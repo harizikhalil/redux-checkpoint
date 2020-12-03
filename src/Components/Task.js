@@ -4,26 +4,29 @@ import { deleteTask, updateTask, completeTask } from "../redux/action";
 export const Task = ({ task, delTask, updateTasks, completeTask }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [taskupdate, setTaskUpdate] = useState(task.description);
-  const handleUpdate = () => {
+  const handleUpdate = (e) => {
+    e.preventDefault();
     updateTasks({ id: task.id, value: taskupdate });
     setIsEdit(!isEdit);
   };
   return (
-    <div>
+    <div style={{ width: "800px", margin: "auto" }}>
       {isEdit ? (
         <div className="task-update">
-          <input
-            type="text"
-            className="form-control"
-            value={taskupdate}
-            onChange={(e) => {
-              setTaskUpdate(e.target.value);
-              console.log(taskupdate);
-            }}
-          />
-          <button className="btn btn-success m-2" onClick={handleUpdate}>
-            update
-          </button>
+          <form onSubmit={handleUpdate}>
+            <input
+              type="text"
+              className="form-control"
+              value={taskupdate}
+              onChange={(e) => {
+                setTaskUpdate(e.target.value);
+              }}
+              required
+            />
+            <button className="btn btn-success m-2" type="submit">
+              update
+            </button>
+          </form>
         </div>
       ) : (
         <div className="task-items">
@@ -54,6 +57,7 @@ export const Task = ({ task, delTask, updateTasks, completeTask }) => {
           </div>
         </div>
       )}
+      <hr />
     </div>
   );
 };
